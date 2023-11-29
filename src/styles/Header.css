@@ -1,0 +1,9 @@
+.header {
+    background-color: rgba(44, 43, 43, 0.733);
+    min-width: 100vw;
+    padding: 15px;
+}
+
+.titleHeader h2{
+    margin: 0;
+}

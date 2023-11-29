@@ -1,0 +1,16 @@
+.generalInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.generalInfo div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitBtn {
+    padding: 5px 15px;
+}
