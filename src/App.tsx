@@ -3,6 +3,7 @@ import "./App.css";
 import GeneralInfo from "./Components/GeneralInfo";
 import Header from "./Components/Header";
 import person from "./interfaces/person";
+import EducationInfo from "./Components/EducationInfo";
 
 function App() {
   const [user, setUser] = useState<person>({
@@ -35,7 +36,7 @@ function App() {
           display={formIndex === 0}
           handleForm={handleForm}
         />
-        <GeneralInfo
+        <EducationInfo
           user={user}
           onChange={handleChange}
           display={formIndex === 1}

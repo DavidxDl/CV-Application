@@ -1,6 +1,6 @@
-import { useState } from "react";
 import person from "../interfaces/person";
 import "../styles/GeneralInfo.css";
+import Input from "./Input";
 
 interface props {
   user: person;
@@ -10,69 +10,41 @@ interface props {
 }
 
 function GeneralInfo({ user, onChange, display, handleForm }: props) {
-  const [isSend, setIsSend] = useState(false);
   if (!display) return;
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
-    e.preventDefault();
-    setIsSend(true);
-    handleForm(1);
-  }
-
-  if (isSend) {
-    return (
-      <section className="card">
-        <h2 className="cardHeader">Contact</h2>
-        <h3>Name: {user.name}</h3>
-        <h3>Email: {user.email}</h3>
-        <h3>Phone: {user.phone}</h3>
-      </section>
-    );
-  }
-
   return (
     <section className="card">
       <h2 className="cardHeader">Contact</h2>
-      <form className="generalInfo" onSubmit={handleSubmit}>
-        <div className="nameInput">
-          <label htmlFor="name">Name: </label>
-          <input
-            onChange={(e) => {
-              const updatedUser: person = { ...user, name: e.target.value };
-              onChange(updatedUser);
-            }}
-            type="text"
-            id="name"
-            value={user.name}
-            required
-          />
-        </div>
-        <div className="emailInput">
-          <label htmlFor="email">Email: </label>
-          <input
-            onChange={(e) => {
-              const updatedUser: person = { ...user, email: e.target.value };
-              onChange(updatedUser);
-            }}
-            type="email"
-            id="email"
-            value={user.email}
-            required
-          />
-        </div>
-        <div className="phoneInput">
-          <label htmlFor="phone">Phone: </label>
-          <input
-            onChange={(e) => {
-              const updatedUser: person = { ...user, phone: e.target.value };
-              onChange(updatedUser);
-            }}
-            type="tel"
-            id="phone"
-            value={user.phone}
-            required
-            minLength={5}
-          />
-        </div>
+      <form
+        className="generalInfo"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleForm(1);
+        }}
+      >
+        <Input
+          inputFor="name"
+          label="Name: "
+          onChange={onChange}
+          type="text"
+          user={user}
+          value={user.name}
+        />
+        <Input
+          inputFor="email"
+          label="Email :"
+          onChange={onChange}
+          type="email"
+          user={user}
+          value={user.email}
+        />
+        <Input
+          type="tel"
+          inputFor="phone"
+          label="Phone :"
+          onChange={onChange}
+          user={user}
+          value={user.phone}
+        />
         <div className="submitBtn">
           <input className="submitBtn" type="submit" value="Next" />
         </div>

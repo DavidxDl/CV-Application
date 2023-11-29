@@ -1,6 +1,7 @@
 import { useState } from "react";
 import person from "../interfaces/person";
 import "../styles/GeneralInfo.css";
+import Input from "./Input";
 
 interface props {
   user: person;
@@ -15,9 +16,7 @@ function EducationInfo({ user, onChange, display, handleForm }: props) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
     setIsSend(true);
-    handleForm(2);
   }
-
   if (isSend) {
     return (
       <section className="card">
@@ -36,49 +35,30 @@ function EducationInfo({ user, onChange, display, handleForm }: props) {
     <section className="card">
       <h2 className="cardHeader">Contact</h2>
       <form className="generalInfo" onSubmit={handleSubmit}>
-        <div className="nameInput">
-          <label htmlFor="School">School Name: </label>
-          <input
-            onChange={(e) => {
-              const updatedUser: person = {
-                ...user,
-                schoolName: e.target.value,
-              };
-              onChange(updatedUser);
-            }}
-            type="text"
-            id="school"
-            value={user.schoolName}
-            required
-          />
-        </div>
-        <div className="emailInput">
-          <label htmlFor="email">Email: </label>
-          <input
-            onChange={(e) => {
-              const updatedUser: person = { ...user, email: e.target.value };
-              onChange(updatedUser);
-            }}
-            type="email"
-            id="email"
-            value={user.email}
-            required
-          />
-        </div>
-        <div className="phoneInput">
-          <label htmlFor="phone">Phone: </label>
-          <input
-            onChange={(e) => {
-              const updatedUser: person = { ...user, phone: e.target.value };
-              onChange(updatedUser);
-            }}
-            type="tel"
-            id="phone"
-            value={user.phone}
-            required
-            minLength={5}
-          />
-        </div>
+        <Input
+          type="text"
+          user={user}
+          value={user.schoolName}
+          inputFor="schoolName"
+          label="School Name :"
+          onChange={onChange}
+        />
+        <Input
+          inputFor="studyTitle"
+          label="School Title: "
+          onChange={onChange}
+          type="text"
+          user={user}
+          value={user.studyTitle}
+        />
+        <Input
+          inputFor="studyDate"
+          label="Study Date :"
+          onChange={onChange}
+          type="text"
+          user={user}
+          value={user.studyDate}
+        />
         <div className="submitBtn">
           <input className="submitBtn" type="submit" value="Next" />
         </div>
