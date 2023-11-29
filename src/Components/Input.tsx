@@ -14,11 +14,10 @@ export default function Input({ onChange, label, inputFor, user }: props) {
       <label htmlFor={inputFor}>{label}</label>
       <input
         onChange={(e) => {
-          const property = user[inputFor];
           const updatedUser: person = {
             ...user,
+            [inputFor]: e.target.value,
           };
-          updatedUser[inputFor];
           onChange(updatedUser);
         }}
         type="text"

@@ -10,9 +10,3 @@ export default interface person {
     mainResponsibilities:string;
     workedTime:string
 }
-
-
-export type personn = {
-    name: string;
-
-}
