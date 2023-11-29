@@ -9,13 +9,13 @@ interface props {
   handleForm: (index: number) => void;
 }
 
-function GeneralInfo({ user, onChange, display, handleForm }: props) {
+function EducationInfo({ user, onChange, display, handleForm }: props) {
   const [isSend, setIsSend] = useState(false);
   if (!display) return;
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
     setIsSend(true);
-    handleForm(1);
+    handleForm(2);
   }
 
   if (isSend) {
@@ -25,6 +25,9 @@ function GeneralInfo({ user, onChange, display, handleForm }: props) {
         <h3>Name: {user.name}</h3>
         <h3>Email: {user.email}</h3>
         <h3>Phone: {user.phone}</h3>
+        <h3>School: {user.schoolName}</h3>
+        <h3>Title: {user.studyTitle}</h3>
+        <h3>Date: {user.studyDate}</h3>
       </section>
     );
   }
@@ -34,15 +37,18 @@ function GeneralInfo({ user, onChange, display, handleForm }: props) {
       <h2 className="cardHeader">Contact</h2>
       <form className="generalInfo" onSubmit={handleSubmit}>
         <div className="nameInput">
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="School">School Name: </label>
           <input
             onChange={(e) => {
-              const updatedUser: person = { ...user, name: e.target.value };
+              const updatedUser: person = {
+                ...user,
+                schoolName: e.target.value,
+              };
               onChange(updatedUser);
             }}
             type="text"
-            id="name"
-            value={user.name}
+            id="school"
+            value={user.schoolName}
             required
           />
         </div>
@@ -81,4 +87,4 @@ function GeneralInfo({ user, onChange, display, handleForm }: props) {
   );
 }
 
-export default GeneralInfo;
+export default EducationInfo;
