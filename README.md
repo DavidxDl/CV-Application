@@ -1,4 +1,4 @@
-#Cv Generator
+# Cv Generator
 
 a website that takes input from the user, and generate a Cv with that data
 
