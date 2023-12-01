@@ -1,6 +1,8 @@
 export default interface person {
   name: string;
   lastName: string;
+  email: string;
+  phone: string;
   profession: string;
   education: schooles[];
   experience: experience[];

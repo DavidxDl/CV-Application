@@ -1,12 +1,18 @@
 import person from "../interfaces/person";
 import "../styles/Cv.css"
 import "../../public/FTG5402-Editar-scaled.webp"
+import Name from "./Name";
+import Email from "./Email";
+import Phone from "./Phone";
+import Experience from "./Experience";
+import Educaiton from "./Education";
 interface props {
   user: person;
 }
 
 
 export default function Cv({ user }: props) {
+  const fullName: string = user.name + ' ' + user.lastName;
   return (
     <div className="Cv">
       <div className="topCv">
@@ -15,17 +21,21 @@ export default function Cv({ user }: props) {
           </div>
           <div className="profileInfo">
             <div className="profileName">
-              <h2 id="profileName">{user.name} {user.lastName}</h2>
+              <Name name={fullName} />
             </div>
             <div className="profileProfession">
-              <h3 id="profession">{user.profession}</h3>
+              <h3 id="profileProfession">{user.profession}</h3>
+            </div>
+            <div className="contactProfile">
+              <Email email={user.email} />
+              <Phone phone={user.phone} />
             </div>
           </div>
         </div>
       </div>
-      <div className="contact"></div>
       <div className="bottomCv">
-        bottom
+        <Experience experiences={user.experience} />
+        <Educaiton education={user.education} />
       </div>
     </div>
   )

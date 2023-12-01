@@ -3,6 +3,7 @@
   flex-direction: column;
   flex: 1;
   max-width: 500px;
+  max-height:500px;
 }
 
 .topCv {
@@ -16,20 +17,35 @@
 .bottomCv {
   flex: 1;
   background-color:white;
+  color: black;
 }
 .profileInfo {
   flex:1;
   
+}
+.contactInfo {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 500;
+  color: gray;
+}
+.contactIcon {
+  width: 20px
 }
 
 .profile {
   display: flex;
   flex: 1;
 }
+#profileName {
+  margin-bottom: 5px;
+}
 
 .profileProfession  h3{
   font-size: 18px;
-
+  margin-top: 10px;
+  font-weight: 400;
 }
 
 .profilePhoto {
@@ -39,3 +55,5 @@
   width: 120px;
   margin-right:auto;
 }
+
+
