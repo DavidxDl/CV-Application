@@ -8,6 +8,7 @@ main {
   display: flex;
   justify-content: center;
   padding: 20px;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -36,14 +37,6 @@ main {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-.contactInfo {
-  display: flex;
-  align-items: center;
-  font-size: 17px;
-}
-.contactIcon {
-  width: 20px
 }
 
 .card {
