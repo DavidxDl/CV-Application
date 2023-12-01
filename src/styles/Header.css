@@ -1,7 +1,7 @@
 .header {
     background-color: rgba(44, 43, 43, 0.733);
     min-width: 100vw;
-    padding: 15px;
+    padding: 15px 0;
 }
 
 .titleHeader h2{

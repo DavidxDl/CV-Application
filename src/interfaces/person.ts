@@ -1,12 +1,22 @@
 export default interface person {
-    name:string;
-    email:string;
-    phone:string;
-    schoolName:string;
-    studyTitle:string;
-    studyDate:string
-    companyName:string
-    positionTitle:string;
-    mainResponsibilities:string;
-    workedTime:string
+  name: string;
+  email: string;
+  phone: string;
+  education: schooles[];
+  experience: experience[];
+}
+
+export interface schooles {
+  id: number;
+  schoolName: string;
+  studyTitle: string;
+  studyDate: string
+}
+
+export interface experience {
+  id: number;
+  companyName: string
+  positionTitle: string;
+  mainResponsibilities: string;
+  workedTime: string
 }

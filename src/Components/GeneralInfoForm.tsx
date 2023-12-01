@@ -24,25 +24,22 @@ function GeneralInfo({ user, onChange, display, handleForm }: props) {
         <Input
           inputFor="name"
           label="Name: "
-          onChange={onChange}
+          onChange={(e) => onChange({ ...user, name: e.target.value })}
           type="text"
-          user={user}
           value={user.name}
         />
         <Input
           inputFor="email"
           label="Email :"
-          onChange={onChange}
+          onChange={(e) => onChange({ ...user, email: e.target.value })}
           type="email"
-          user={user}
           value={user.email}
         />
         <Input
           type="tel"
           inputFor="phone"
           label="Phone :"
-          onChange={onChange}
-          user={user}
+          onChange={(e) => onChange({ ...user, phone: e.target.value })}
           value={user.phone}
         />
         <div className="submitBtn">

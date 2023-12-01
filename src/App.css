@@ -40,13 +40,17 @@ main {
 
 .card {
   flex: 1;
+  border: 1px solid gray;
   padding: 2em;
-  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.89), transparent);
-  max-width: 400px; 
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 1), transparent);
+  max-width: 500px; 
 }
 
 .cardHeader {
   font-size: 36px;
+}
+.cardInfo {
+  margin-bottom: 10px;
 }
 
 .read-the-docs {

@@ -4,6 +4,13 @@
     gap: 10px;
 }
 
+input {
+  padding: 8px;
+  font-size: 19px;
+
+
+}
+
 .generalInfo div {
     display: flex;
     flex-direction: column;
@@ -11,6 +18,9 @@
     align-items: center;
 }
 
-.submitBtn {
+#submitBtn {
     padding: 5px 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }

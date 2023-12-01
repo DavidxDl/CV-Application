@@ -1,5 +1,6 @@
 import { useState } from "react";
-import person from "../interfaces/person";
+import { Forms } from "../interfaces/forms";
+import person, { schooles } from "../interfaces/person";
 import "../styles/GeneralInfo.css";
 import Input from "./Input";
 
@@ -9,61 +10,50 @@ interface props {
   display: boolean;
   handleForm: (index: number) => void;
 }
+const edu: schooles = { id: 123, schoolName: "", studyDate: "", studyTitle: "" };
 
 function EducationInfo({ user, onChange, display, handleForm }: props) {
-  const [isSend, setIsSend] = useState(false);
+
+  const [education, setEducation] = useState<schooles>(edu)
   if (!display) return;
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
-    setIsSend(true);
-  }
-  if (isSend) {
-    return (
-      <section className="card">
-        <h2 className="cardHeader">Contact</h2>
-        <h3>Name: {user.name}</h3>
-        <h3>Email: {user.email}</h3>
-        <h3>Phone: {user.phone}</h3>
-        <h3>School: {user.schoolName}</h3>
-        <h3>Title: {user.studyTitle}</h3>
-        <h3>Date: {user.studyDate}</h3>
-      </section>
-    );
+    handleForm(Forms.WorkInfo);
+    onChange({ ...user, experience: [...user.experience], education: [...user.education, education] })
   }
 
   return (
     <section className="card">
-      <h2 className="cardHeader">Contact</h2>
+      <h2 className="cardHeader">Education Info</h2>
       <form className="generalInfo" onSubmit={handleSubmit}>
         <Input
           type="text"
-          user={user}
-          value={user.schoolName}
+          value={education.schoolName}
           inputFor="schoolName"
           label="School Name :"
-          onChange={onChange}
+          onChange={(e) => setEducation({ ...education, schoolName: e.target.value })}
         />
         <Input
           inputFor="studyTitle"
           label="School Title: "
-          onChange={onChange}
+          onChange={(e) => setEducation({ ...education, studyTitle: e.target.value })}
           type="text"
-          user={user}
-          value={user.studyTitle}
+          value={education.studyTitle}
         />
         <Input
           inputFor="studyDate"
           label="Study Date :"
-          onChange={onChange}
+          onChange={(e) => setEducation({ ...education, studyDate: e.target.value })}
           type="text"
-          user={user}
-          value={user.studyDate}
+          value={education.studyDate}
         />
-        <div className="submitBtn">
+        <div id="submitBtn">
+          <input onClick={() => handleForm(Forms.GeneralInfo)} className="prev" type="button" value="Previus" />
           <input className="submitBtn" type="submit" value="Next" />
         </div>
       </form>
-    </section>
+    </section >
   );
 }
 
