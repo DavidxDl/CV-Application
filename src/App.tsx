@@ -7,6 +7,7 @@ import EducationInfoForm from "./Components/EducationInfoForm";
 import WorkInfoForm from "./Components/WorkInfoForm";
 import { Forms } from "./interfaces/forms";
 import { defaultUser } from "./Data/DefaultUser";
+import Cv from "./Components/Cv";
 
 function App() {
   const [user, setUser] = useState<person>(defaultUser);
@@ -41,6 +42,7 @@ function App() {
           onChange={handleChange}
           display={formIndex === Forms.WorkInfo}
         />
+        <Cv user={user} />
       </main>
     </>
   );

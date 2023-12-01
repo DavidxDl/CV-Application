@@ -1,0 +1,41 @@
+.Cv {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 500px;
+}
+
+.topCv {
+  background-color: black;
+  display:flex;
+  border-radius: 7px; 
+  max-height: 170px;
+  flex: 1;
+}
+
+.bottomCv {
+  flex: 1;
+  background-color:white;
+}
+.profileInfo {
+  flex:1;
+  
+}
+
+.profile {
+  display: flex;
+  flex: 1;
+}
+
+.profileProfession  h3{
+  font-size: 18px;
+
+}
+
+.profilePhoto {
+  background-image: url(../../public/FTG5402-Editar-scaled.webp);
+  background-size: cover;
+  height: 170px;
+  width: 120px;
+  margin-right:auto;
+}

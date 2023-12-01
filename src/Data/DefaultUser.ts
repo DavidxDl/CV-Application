@@ -1,9 +1,10 @@
 import person from "../interfaces/person";
 
 export const defaultUser: person = {
-  id: 12,
-  name: "Theo",
-  email: "Theothegoat@gmail.com",
+  name: "Hayley",
+  lastName: "Stone",
+  profession: "Frontend Dev",
+  email: "HayleyStone@gmail.com",
   phone: "+1-555-505-444",
 
   education: [
