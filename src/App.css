@@ -9,6 +9,8 @@ main {
   justify-content: center;
   padding: 20px;
   flex-wrap: wrap;
+  gap: 10px;
+
 }
 
 .logo {

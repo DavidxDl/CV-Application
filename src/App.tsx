@@ -8,6 +8,7 @@ import WorkInfoForm from "./Components/WorkInfoForm";
 import { Forms } from "./interfaces/forms";
 import { defaultUser } from "./Data/DefaultUser";
 import Cv from "./Components/Cv";
+import FormTabs from "./Components/FormTabs";
 
 function App() {
   const [user, setUser] = useState<person>(defaultUser);
@@ -49,3 +50,24 @@ function App() {
 }
 
 export default App;
+
+/*
+        <GeneralInfoForm
+          user={user}
+          onChange={handleChange}
+          display={formIndex === Forms.GeneralInfo}
+          handleForm={handleForm}
+        />
+        <EducationInfoForm
+          user={user}
+          onChange={handleChange}
+          display={formIndex === Forms.EducationInfo}
+          handleForm={handleForm}
+        />
+        <WorkInfoForm
+          handleForm={handleForm}
+          user={user}
+          onChange={handleChange}
+          display={formIndex === Forms.WorkInfo}
+        />
+*/

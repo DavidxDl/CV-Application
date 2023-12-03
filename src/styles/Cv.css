@@ -15,9 +15,20 @@
 }
 
 .bottomCv {
+  display: flex;
   flex: 1;
+  justify-content:center;
   background-color:white;
   color: black;
+  gap: 10px;
+  flex-wrap:wrap;
+
+}
+.cvExperience {
+  flex: 1;
+}
+.cvEducation {
+  flex: 1;
 }
 .profileInfo {
   flex:1;
@@ -25,6 +36,7 @@
 }
 .contactInfo {
   display: flex;
+  padding: 2px;
   align-items: center;
   font-size: 17px;
   font-weight: 500;
@@ -54,6 +66,21 @@
   height: 170px;
   width: 120px;
   margin-right:auto;
+  border-radius: 8px 0px 0px 0px
 }
 
+.experience > li{
+  list-style: none; 
+  padding-left: 0; 
+}
+
+.experience {
+  padding-left: 0;
+}
+.education > li {
+  list-style: none;
+}
+.education {
+  padding-left: 0;
+}
 
