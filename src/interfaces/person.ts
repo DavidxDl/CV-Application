@@ -10,14 +10,14 @@ export default interface person {
 }
 
 export interface schooles {
-  id: uuid;
+  id: string;
   schoolName: string;
   studyTitle: string;
   studyDate: string
 }
 
 export interface experience {
-  id: uuid;
+  id: string;
   companyName: string
   positionTitle: string;
   mainResponsibilities: string;

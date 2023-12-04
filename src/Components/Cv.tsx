@@ -1,6 +1,6 @@
 import person from "../interfaces/person";
 import "../styles/Cv.css"
-import "../../public/FTG5402-Editar-scaled.webp"
+import "/FTG5402-Editar-scaled.webp"
 import Name from "./Name";
 import Email from "./Email";
 import Phone from "./Phone";
