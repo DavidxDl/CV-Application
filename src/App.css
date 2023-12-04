@@ -4,13 +4,13 @@
 }
 
 main {
+  position:relative;
   min-height: 100dvh;
+  align-items: start;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   flex-wrap: wrap;
-  gap: 10px;
-
 }
 
 .logo {
@@ -47,15 +47,24 @@ main {
   padding: 2em;
   background: linear-gradient(-45deg, rgba(0, 0, 0, 1), transparent);
   max-width: 500px; 
+  min-width: 285px;
 }
+
 
 .cardHeader {
   font-size: 36px;
 }
+
 .cardInfo {
   margin-bottom: 10px;
 }
 
 .read-the-docs {
   color: #888;
+}
+@media only screen and (min-width: 600px) {
+
+  .card {
+    align-self:start;
+  }
 }

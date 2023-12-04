@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Forms } from "../interfaces/forms";
 import person, { schooles } from "../interfaces/person";
 import "../styles/GeneralInfo.css";
 import Input from "./Input";
+import { v4 as uuid } from 'uuid'
 
 interface props {
   user: person;
@@ -10,23 +10,24 @@ interface props {
   display: boolean;
   handleForm: (index: number) => void;
 }
-const edu: schooles = { id: 123, schoolName: "", studyDate: "", studyTitle: "" };
 
+const edu: schooles = { id: uuid(), schoolName: "", studyDate: "", studyTitle: "" };
 function EducationInfo({ user, onChange, display, handleForm }: props) {
-
   const [education, setEducation] = useState<schooles>(edu)
   if (!display) return;
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
-    handleForm(Forms.WorkInfo);
     onChange({ ...user, experience: [...user.experience], education: [...user.education, education] })
+    clearInputs();
   }
-
+  function clearInputs() {
+    setEducation(edu)
+  }
   return (
     <section className="card">
       <h2 className="cardHeader">Education Info</h2>
-      <form className="generalInfo" onSubmit={handleSubmit}>
+      <form id="educationInfo" className="generalInfo" onSubmit={handleSubmit}>
         <Input
           type="text"
           value={education.schoolName}
@@ -49,8 +50,8 @@ function EducationInfo({ user, onChange, display, handleForm }: props) {
           value={education.studyDate}
         />
         <div id="submitBtn">
-          <input onClick={() => handleForm(Forms.GeneralInfo)} className="prev" type="button" value="Previus" />
-          <input className="submitBtn" type="submit" value="Next" />
+          <input className="submitBtn" type="submit" value="Add" />
+          <input onClick={() => handleForm(-1)} className="closeBtn" type="button" value="Close" />
         </div>
       </form>
     </section >

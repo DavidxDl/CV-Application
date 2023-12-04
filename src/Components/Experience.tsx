@@ -9,7 +9,7 @@ export default function Experience({ experiences }: props) {
     <div className="cvExperience">
       <h2 >Experience</h2>
       {experiences.map(experience => (
-        <ul className="experience">
+        <ul key={experience.id} className="experience">
           <h3>{experience.companyName}</h3>
           <li>Position: {experience.positionTitle}</li>
           <li>Responsibility: {experience.mainResponsibilities}</li>

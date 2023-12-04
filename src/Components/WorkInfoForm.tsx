@@ -2,7 +2,7 @@ import { useState } from "react";
 import person, { experience } from "../interfaces/person";
 import "../styles/GeneralInfo.css"
 import Input from "./Input";
-import UserInfo from "./UserInfo";
+import { v4 as uuid } from "uuid";
 
 interface props {
   user: person;
@@ -11,17 +11,11 @@ interface props {
   handleForm: (index: number) => void;
 }
 
+const defaultWork: experience = { id: uuid(), companyName: "", positionTitle: "", mainResponsibilities: "", workedTime: "" };
 export default function WorkInfoForm({ user, onChange, display, handleForm }: props) {
-  const [isSubmited, setIsSubmited] = useState(false);
-  const [work, setWork] = useState<experience>({});
+  const [work, setWork] = useState<experience>(defaultWork);
 
-  if (isSubmited)
-    return (
-      <section className="card">
-        <h2 className="cardHeader">Your Information</h2>
-        <UserInfo user={user} />
-      </section>
-    )
+
   if (display)
     return (
       <section className="card">
@@ -30,8 +24,8 @@ export default function WorkInfoForm({ user, onChange, display, handleForm }: pr
           className="generalInfo"
           onSubmit={(e) => {
             e.preventDefault();
-            setIsSubmited(true);
             onChange({ ...user, education: [...user.education], experience: [...user.experience, work] })
+            setWork(defaultWork)
           }}
         >
           <Input
@@ -63,8 +57,8 @@ export default function WorkInfoForm({ user, onChange, display, handleForm }: pr
             value={work.workedTime}
           />
           <div id="submitBtn">
-            <input onClick={() => handleForm(1)} className="prevBtn" value="Prev" type="button" />
-            <input className="submitBtn" type="submit" value="Next" />
+            <input className="add" value="Add" type="submit" />
+            <input onClick={() => handleForm(-1)} className="closeBtn" value="Close" type="button" />
           </div>
         </form>
       </section >

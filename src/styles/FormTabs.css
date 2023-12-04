@@ -3,10 +3,27 @@
   align-items: center;
   justify-content: center;
   height: 40px;
-  gap: 5px;
+  gap: 15px;
+  margin-top: 20px;
   background-color: black;
+  padding: 0px 5px;
 }
 
 .formTabs > h3 {
-  margin:0;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+  .formTabs {
+    flex-direction:column;
+    height: fit-content;
+    left:0;
+    padding: 6px;
+    align-self:start;
+  }
+  .formTabs > h3 {
+    writing-mode: sideways-lr;
+    text-orientation: revert-layer;
+
+}
 }

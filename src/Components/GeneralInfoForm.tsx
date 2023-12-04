@@ -15,12 +15,7 @@ function GeneralInfo({ user, onChange, display, handleForm }: props) {
     <section className="card">
       <h2 className="cardHeader">Contact</h2>
       <form
-        className="generalInfo"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleForm(1);
-        }}
-      >
+        className="generalInfo">
         <Input
           inputFor="name"
           label="Name: "
@@ -57,7 +52,7 @@ function GeneralInfo({ user, onChange, display, handleForm }: props) {
           value={user.phone}
         />
         <div className="submitBtn">
-          <input className="submitBtn" type="submit" value="Next" />
+          <input onClick={() => handleForm(-1)} className="closeBtn" type="button" value="Close" />
         </div>
       </form>
     </section>
